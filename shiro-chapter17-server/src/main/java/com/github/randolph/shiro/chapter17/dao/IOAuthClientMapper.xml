@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.randolph.shiro.chapter17.dao.IOAuthClientMapper">
+	<resultMap id="BaseResultMap"
+		type="com.github.randolph.shiro.chapter17.entity.OAuthClientDO">
+		<id column="KeyId" jdbcType="CHAR" property="keyid" />
+		<result column="ClientName" jdbcType="VARCHAR" property="clientname" />
+		<result column="ClientKeyId" jdbcType="VARCHAR" property="clientkeyid" />
+		<result column="ClientSecret" jdbcType="VARCHAR" property="clientsecret" />
+		<result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
+		<result column="UpdateTime" jdbcType="TIMESTAMP" property="updatetime" />
+		<result column="IsDelete" jdbcType="TIMESTAMP" property="isdelete" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		KeyId, ClientName, ClientKeyId, ClientSecret, CreateTime, UpdateTime,
+		IsDelete
+	</sql>
+	<select id="selectByExample"
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientDOQuery"
+		resultMap="BaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from T_OAuth2_User
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from T_OAuth2_User
+		where KeyId = #{keyid,jdbcType=CHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from T_OAuth2_User
+		where KeyId = #{keyid,jdbcType=CHAR}
+	</delete>
+	<delete id="deleteByExample"
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientDOQuery">
+		delete from T_OAuth2_User
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert"
+		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthClientDO">
+		insert into T_OAuth2_User (KeyId, ClientName, ClientKeyId,
+		ClientSecret, CreateTime, UpdateTime,
+		IsDelete)
+		values (#{keyid,jdbcType=CHAR}, #{clientname,jdbcType=VARCHAR},
+		#{clientkeyid,jdbcType=VARCHAR},
+		#{clientsecret,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP},
+		#{isdelete,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthClientDO">
+		insert into T_OAuth2_User
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="keyid != null">
+				KeyId,
+			</if>
+			<if test="clientname != null">
+				ClientName,
+			</if>
+			<if test="clientkeyid != null">
+				ClientKeyId,
+			</if>
+			<if test="clientsecret != null">
+				ClientSecret,
+			</if>
+			<if test="createtime != null">
+				CreateTime,
+			</if>
+			<if test="updatetime != null">
+				UpdateTime,
+			</if>
+			<if test="isdelete != null">
+				IsDelete,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="keyid != null">
+				#{keyid,jdbcType=CHAR},
+			</if>
+			<if test="clientname != null">
+				#{clientname,jdbcType=VARCHAR},
+			</if>
+			<if test="clientkeyid != null">
+				#{clientkeyid,jdbcType=VARCHAR},
+			</if>
+			<if test="clientsecret != null">
+				#{clientsecret,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				#{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isdelete != null">
+				#{isdelete,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample"
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientDOQuery"
+		resultType="java.lang.Long">
+		select count(*) from T_OAuth2_User
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update T_OAuth2_User
+		<set>
+			<if test="record.keyid != null">
+				KeyId = #{record.keyid,jdbcType=CHAR},
+			</if>
+			<if test="record.clientname != null">
+				ClientName = #{record.clientname,jdbcType=VARCHAR},
+			</if>
+			<if test="record.clientkeyid != null">
+				ClientKeyId = #{record.clientkeyid,jdbcType=VARCHAR},
+			</if>
+			<if test="record.clientsecret != null">
+				ClientSecret = #{record.clientsecret,jdbcType=VARCHAR},
+			</if>
+			<if test="record.createtime != null">
+				CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.updatetime != null">
+				UpdateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.isdelete != null">
+				IsDelete = #{record.isdelete,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update T_OAuth2_User
+		set KeyId = #{record.keyid,jdbcType=CHAR},
+		ClientName = #{record.clientname,jdbcType=VARCHAR},
+		ClientKeyId = #{record.clientkeyid,jdbcType=VARCHAR},
+		ClientSecret = #{record.clientsecret,jdbcType=VARCHAR},
+		CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+		UpdateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+		IsDelete = #{record.isdelete,jdbcType=TIMESTAMP}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthClientDO">
+		update T_OAuth2_User
+		<set>
+			<if test="clientname != null">
+				ClientName = #{clientname,jdbcType=VARCHAR},
+			</if>
+			<if test="clientkeyid != null">
+				ClientKeyId = #{clientkeyid,jdbcType=VARCHAR},
+			</if>
+			<if test="clientsecret != null">
+				ClientSecret = #{clientsecret,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				CreateTime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatetime != null">
+				UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isdelete != null">
+				IsDelete = #{isdelete,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where KeyId = #{keyid,jdbcType=CHAR}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthClientDO">
+		update T_OAuth2_User
+		set ClientName = #{clientname,jdbcType=VARCHAR},
+		ClientKeyId = #{clientkeyid,jdbcType=VARCHAR},
+		ClientSecret = #{clientsecret,jdbcType=VARCHAR},
+		CreateTime = #{createtime,jdbcType=TIMESTAMP},
+		UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
+		IsDelete = #{isdelete,jdbcType=TIMESTAMP}
+		where KeyId = #{keyid,jdbcType=CHAR}
+	</update>
+</mapper>
