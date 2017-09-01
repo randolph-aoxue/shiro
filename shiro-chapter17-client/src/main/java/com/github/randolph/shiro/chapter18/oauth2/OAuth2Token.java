@@ -8,11 +8,10 @@ public class OAuth2Token implements AuthenticationToken {
 
     // 安全码
     private String authCode;
-    
+
     // 用户信息
     private String principal;
 
-    
     public OAuth2Token(String authCode) {
         this.authCode = authCode;
     }

@@ -107,29 +107,13 @@
 	<build>
 		<finalName>chapter17-client</finalName>
 		<plugins>
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.mortbay.jetty</groupId> -->
-<!-- 				<artifactId>jetty-maven-plugin</artifactId> -->
-<!-- 				<version>8.1.8.v20121106</version> -->
-<!-- 				<configuration> -->
-<!-- 					<webAppConfig> -->
-<!-- 						<contextPath>/${project.build.finalName}</contextPath> -->
-<!-- 					</webAppConfig> -->
-<!-- 					<connectors> -->
-<!-- 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector"> -->
-<!-- 							<port>9080</port> -->
-<!-- 							<maxIdleTime>60000</maxIdleTime> -->
-<!-- 						</connector> -->
-<!-- 					</connectors> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
 					<path>/${project.build.finalName}</path>
-					<httpPort>9080</httpPort>
+					<httpPort>8090</httpPort>
+					<httpsPort>8090</httpsPort>
 				</configuration>
 			</plugin>
 		</plugins>
