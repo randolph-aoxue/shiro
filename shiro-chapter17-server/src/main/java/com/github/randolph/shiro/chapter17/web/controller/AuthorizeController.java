@@ -50,7 +50,7 @@ public class AuthorizeController {
             // 构建 OAuth 授权请求
             OAuthAuthzRequest oauthRequest = new OAuthAuthzRequest(request);
 
-            // 检查传入的客户端id是否正确
+            // 检查传入的客户端 id 是否正确
             if (!oAuthService.checkClientId(oauthRequest.getClientId())) {
                 OAuthResponse response = OAuthASResponse.errorResponse(HttpServletResponse.SC_BAD_REQUEST)
                         .setError(OAuthError.TokenResponse.INVALID_CLIENT)
@@ -59,7 +59,7 @@ public class AuthorizeController {
             }
 
             Subject subject = SecurityUtils.getSubject();
-            // 如果用户没有登录，跳转到登陆页面
+            // 如果用户没有登录，进行登录
             if (!subject.isAuthenticated()) {
                 if (!login(subject, request)) {// 登录失败时跳转到登陆页面
                     model.addAttribute("client", oAuthClientService.findByClientId(oauthRequest.getClientId()));
@@ -70,7 +70,7 @@ public class AuthorizeController {
             String username = (String) subject.getPrincipal();
             // 生成授权码
             String authorizationCode = null;
-            // responseType目前仅支持CODE，另外还有TOKEN
+            // responseType 目前仅支持 CODE，另外还有 TOKEN
             String responseType = oauthRequest.getParam(OAuth.OAUTH_RESPONSE_TYPE);
             if (responseType.equals(ResponseType.CODE.toString())) {
                 OAuthIssuerImpl oauthIssuerImpl = new OAuthIssuerImpl(new MD5Generator());
@@ -89,7 +89,7 @@ public class AuthorizeController {
             // 构建响应
             final OAuthResponse response = builder.location(redirectURI).buildQueryMessage();
 
-            // 根据 OAuthResponse 返回ResponseEntity响应
+            // 根据 OAuthResponse 返回 ResponseEntity 响应
             HttpHeaders headers = new HttpHeaders();
             headers.setLocation(new URI(response.getLocationUri()));
             return new ResponseEntity(headers, HttpStatus.valueOf(response.getResponseStatus()));
@@ -98,7 +98,7 @@ public class AuthorizeController {
             // 出错处理
             String redirectUri = e.getRedirectUri();
             if (OAuthUtils.isEmpty(redirectUri)) {
-                // 告诉客户端没有传入redirectUri直接报错
+                // 告诉客户端没有传入 redirectUri 直接报错
                 return new ResponseEntity("OAuth callback url needs to be provided by client!!!", HttpStatus.NOT_FOUND);
             }
 

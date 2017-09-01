@@ -5,6 +5,7 @@ import java.util.List;
 import com.github.randolph.shiro.chapter17.entity.OAuthUserDO;
 
 public interface IOAuthUserService {
+    
     /**
      * 创建用户
      * 
@@ -12,8 +13,25 @@ public interface IOAuthUserService {
      */
     OAuthUserDO createUser(OAuthUserDO user);
 
+    /**
+     * 
+     * 更新用户
+     * 
+     * @param user
+     * @return
+     * @author randolph
+     *
+     */
     OAuthUserDO updateUser(OAuthUserDO user);
 
+    /**
+     * 
+     * 删除用户
+     * 
+     * @param userId
+     * @author randolph
+     *
+     */
     void deleteUser(String userId);
 
     /**
@@ -24,8 +42,25 @@ public interface IOAuthUserService {
      */
     void changePassword(String userId, String newPassword);
 
+    /**
+     * 
+     * 根据id 查找用户
+     * 
+     * @param userId
+     * @return
+     * @author randolph
+     *
+     */
     OAuthUserDO findOne(String userId);
 
+    /**
+     * 
+     * 查询所有用户
+     * 
+     * @return
+     * @author randolph
+     *
+     */
     List<OAuthUserDO> findAll();
 
     /**

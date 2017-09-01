@@ -9,7 +9,6 @@ public interface IOAuthService {
      * @param authCode
      * @param username
      * @author randolph
-     * @date 2017年8月31日
      *
      */
     void addAuthCode(String authCode, String username);
@@ -21,7 +20,6 @@ public interface IOAuthService {
      * @param accessToken
      * @param username
      * @author randolph
-     * @date 2017年8月31日
      *
      */
     void addAccessToken(String accessToken, String username);
@@ -33,12 +31,10 @@ public interface IOAuthService {
      * @param authCode
      * @return
      * @author randolph
-     * @date 2017年8月31日
      *
      */
     boolean checkAuthCode(String authCode);
 
-    // 验证access token是否有效
     /**
      * 
      * 验证access token是否有效
@@ -46,13 +42,28 @@ public interface IOAuthService {
      * @param accessToken
      * @return
      * @author randolph
-     * @date 2017年8月31日
      *
      */
     boolean checkAccessToken(String accessToken);
 
+    /**
+     * 根据auth code获取用户名
+     * 
+     * @param authCode
+     * @return
+     * @author randolph
+     *
+     */
     String getUsernameByAuthCode(String authCode);
 
+    /**
+     * 根据access token获取用户名
+     * 
+     * @param accessToken
+     * @return
+     * @author randolph
+     *
+     */
     String getUsernameByAccessToken(String accessToken);
 
     /**
@@ -61,13 +72,28 @@ public interface IOAuthService {
      * 
      * @return
      * @author randolph
-     * @date 2017年8月31日 下午9:13:44
      *
      */
     long getExpireIn();
 
+    /**
+     * 检查客户端id是否存在
+     * 
+     * @param clientId
+     * @return
+     * @author randolph
+     *
+     */
     boolean checkClientId(String clientId);
 
+    /**
+     * 检查客户端安全KEY是否存在
+     * 
+     * @param clientSecret
+     * @return
+     * @author randolph
+     *
+     */
     boolean checkClientSecret(String clientSecret);
 
 }
