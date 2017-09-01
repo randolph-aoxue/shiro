@@ -9,7 +9,7 @@
 		<result column="ClientSecret" jdbcType="VARCHAR" property="clientsecret" />
 		<result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
 		<result column="UpdateTime" jdbcType="TIMESTAMP" property="updatetime" />
-		<result column="IsDelete" jdbcType="TIMESTAMP" property="isdelete" />
+		<result column="IsDelete" jdbcType="BIT" property="isdelete" />
 	</resultMap>
 	<sql id="Example_Where_Clause">
 		<where>
@@ -25,7 +25,8 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value} and
+									and ${criterion.condition} #{criterion.value}
+									and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -57,7 +58,8 @@
 									and ${criterion.condition} #{criterion.value}
 								</when>
 								<when test="criterion.betweenValue">
-									and ${criterion.condition} #{criterion.value} and
+									and ${criterion.condition} #{criterion.value}
+									and
 									#{criterion.secondValue}
 								</when>
 								<when test="criterion.listValue">
@@ -75,11 +77,12 @@
 		</where>
 	</sql>
 	<sql id="Base_Column_List">
-		KeyId, ClientName, ClientKeyId, ClientSecret, CreateTime, UpdateTime,
+		KeyId, ClientName, ClientKeyId, ClientSecret, CreateTime,
+		UpdateTime,
 		IsDelete
 	</sql>
 	<select id="selectByExample"
-		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientDOQuery"
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientQuery"
 		resultMap="BaseResultMap">
 		select
 		<if test="distinct">
@@ -102,11 +105,12 @@
 		where KeyId = #{keyid,jdbcType=CHAR}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-		delete from T_OAuth2_User
+		delete from
+		T_OAuth2_User
 		where KeyId = #{keyid,jdbcType=CHAR}
 	</delete>
 	<delete id="deleteByExample"
-		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientDOQuery">
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientQuery">
 		delete from T_OAuth2_User
 		<if test="_parameter != null">
 			<include refid="Example_Where_Clause" />
@@ -114,13 +118,16 @@
 	</delete>
 	<insert id="insert"
 		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthClientDO">
-		insert into T_OAuth2_User (KeyId, ClientName, ClientKeyId,
+		insert into T_OAuth2_User (KeyId, ClientName,
+		ClientKeyId,
 		ClientSecret, CreateTime, UpdateTime,
 		IsDelete)
-		values (#{keyid,jdbcType=CHAR}, #{clientname,jdbcType=VARCHAR},
+		values
+		(#{keyid,jdbcType=CHAR}, #{clientname,jdbcType=VARCHAR},
 		#{clientkeyid,jdbcType=VARCHAR},
-		#{clientsecret,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP},
-		#{isdelete,jdbcType=TIMESTAMP})
+		#{clientsecret,jdbcType=VARCHAR},
+		#{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP},
+		#{isdelete,jdbcType=BIT})
 	</insert>
 	<insert id="insertSelective"
 		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthClientDO">
@@ -168,12 +175,12 @@
 				#{updatetime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="isdelete != null">
-				#{isdelete,jdbcType=TIMESTAMP},
+				#{isdelete,jdbcType=BIT},
 			</if>
 		</trim>
 	</insert>
 	<select id="countByExample"
-		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientDOQuery"
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientQuery"
 		resultType="java.lang.Long">
 		select count(*) from T_OAuth2_User
 		<if test="_parameter != null">
@@ -202,7 +209,7 @@
 				UpdateTime = #{record.updatetime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="record.isdelete != null">
-				IsDelete = #{record.isdelete,jdbcType=TIMESTAMP},
+				IsDelete = #{record.isdelete,jdbcType=BIT},
 			</if>
 		</set>
 		<if test="_parameter != null">
@@ -213,11 +220,16 @@
 		update T_OAuth2_User
 		set KeyId = #{record.keyid,jdbcType=CHAR},
 		ClientName = #{record.clientname,jdbcType=VARCHAR},
-		ClientKeyId = #{record.clientkeyid,jdbcType=VARCHAR},
-		ClientSecret = #{record.clientsecret,jdbcType=VARCHAR},
-		CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
-		UpdateTime = #{record.updatetime,jdbcType=TIMESTAMP},
-		IsDelete = #{record.isdelete,jdbcType=TIMESTAMP}
+		ClientKeyId =
+		#{record.clientkeyid,jdbcType=VARCHAR},
+		ClientSecret =
+		#{record.clientsecret,jdbcType=VARCHAR},
+		CreateTime =
+		#{record.createtime,jdbcType=TIMESTAMP},
+		UpdateTime =
+		#{record.updatetime,jdbcType=TIMESTAMP},
+		IsDelete =
+		#{record.isdelete,jdbcType=BIT}
 		<if test="_parameter != null">
 			<include refid="Update_By_Example_Where_Clause" />
 		</if>
@@ -242,7 +254,7 @@
 				UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="isdelete != null">
-				IsDelete = #{isdelete,jdbcType=TIMESTAMP},
+				IsDelete = #{isdelete,jdbcType=BIT},
 			</if>
 		</set>
 		where KeyId = #{keyid,jdbcType=CHAR}
@@ -250,12 +262,17 @@
 	<update id="updateByPrimaryKey"
 		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthClientDO">
 		update T_OAuth2_User
-		set ClientName = #{clientname,jdbcType=VARCHAR},
-		ClientKeyId = #{clientkeyid,jdbcType=VARCHAR},
-		ClientSecret = #{clientsecret,jdbcType=VARCHAR},
-		CreateTime = #{createtime,jdbcType=TIMESTAMP},
-		UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
-		IsDelete = #{isdelete,jdbcType=TIMESTAMP}
+		set ClientName =
+		#{clientname,jdbcType=VARCHAR},
+		ClientKeyId =
+		#{clientkeyid,jdbcType=VARCHAR},
+		ClientSecret =
+		#{clientsecret,jdbcType=VARCHAR},
+		CreateTime =
+		#{createtime,jdbcType=TIMESTAMP},
+		UpdateTime =
+		#{updatetime,jdbcType=TIMESTAMP},
+		IsDelete = #{isdelete,jdbcType=BIT}
 		where KeyId = #{keyid,jdbcType=CHAR}
 	</update>
 </mapper>

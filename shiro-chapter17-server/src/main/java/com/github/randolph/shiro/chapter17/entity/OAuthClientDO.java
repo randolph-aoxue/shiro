@@ -15,7 +15,7 @@ public class OAuthClientDO {
 
     private Date updatetime;
 
-    private Date isdelete;
+    private Boolean isdelete;
 
     public String getKeyid() {
         return keyid;
@@ -65,11 +65,11 @@ public class OAuthClientDO {
         this.updatetime = updatetime;
     }
 
-    public Date getIsdelete() {
+    public Boolean getIsdelete() {
         return isdelete;
     }
 
-    public void setIsdelete(Date isdelete) {
+    public void setIsdelete(Boolean isdelete) {
         this.isdelete = isdelete;
     }
 }

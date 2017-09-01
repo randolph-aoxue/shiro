@@ -9,7 +9,7 @@
 		<result column="Salt" jdbcType="VARCHAR" property="salt" />
 		<result column="CreateTime" jdbcType="TIMESTAMP" property="createtime" />
 		<result column="UpdateTime" jdbcType="TIMESTAMP" property="updatetime" />
-		<result column="IsDelete" jdbcType="TIMESTAMP" property="isdelete" />
+		<result column="IsDelete" jdbcType="BIT" property="isdelete" />
 	</resultMap>
 	<sql id="Example_Where_Clause">
 		<where>
@@ -81,7 +81,7 @@
 		IsDelete
 	</sql>
 	<select id="selectByExample"
-		parameterType="com.github.randolph.shiro.chapter17.query.OAuthUserDOQuery"
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthUserQuery"
 		resultMap="BaseResultMap">
 		select
 		<if test="distinct">
@@ -116,7 +116,7 @@
 		</if>
 	</delete>
 	<insert id="insert"
-		parameterType="com.github.randolph.shiro.chapter17.query.OAuthUserDOQuery">
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthUserQuery">
 		insert into T_OAuth2_Client (KeyId, Username, Password,
 		Salt, CreateTime, UpdateTime,
 		IsDelete)
@@ -125,7 +125,7 @@
 		#{password,jdbcType=VARCHAR},
 		#{salt,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
 		#{updatetime,jdbcType=TIMESTAMP},
-		#{isdelete,jdbcType=TIMESTAMP})
+		#{isdelete,jdbcType=BIT})
 	</insert>
 	<insert id="insertSelective"
 		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthUserDO">
@@ -173,12 +173,12 @@
 				#{updatetime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="isdelete != null">
-				#{isdelete,jdbcType=TIMESTAMP},
+				#{isdelete,jdbcType=BIT},
 			</if>
 		</trim>
 	</insert>
 	<select id="countByExample"
-		parameterType="com.github.randolph.shiro.chapter17.query.OAuthUserDOQuery"
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthUserQuery"
 		resultType="java.lang.Long">
 		select count(*) from T_OAuth2_Client
 		<if test="_parameter != null">
@@ -207,7 +207,7 @@
 				UpdateTime = #{record.updatetime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="record.isdelete != null">
-				IsDelete = #{record.isdelete,jdbcType=TIMESTAMP},
+				IsDelete = #{record.isdelete,jdbcType=BIT},
 			</if>
 		</set>
 		<if test="_parameter != null">
@@ -227,7 +227,7 @@
 		UpdateTime =
 		#{record.updatetime,jdbcType=TIMESTAMP},
 		IsDelete =
-		#{record.isdelete,jdbcType=TIMESTAMP}
+		#{record.isdelete,jdbcType=BIT}
 		<if test="_parameter != null">
 			<include refid="Update_By_Example_Where_Clause" />
 		</if>
@@ -252,7 +252,7 @@
 				UpdateTime = #{updatetime,jdbcType=TIMESTAMP},
 			</if>
 			<if test="isdelete != null">
-				IsDelete = #{isdelete,jdbcType=TIMESTAMP},
+				IsDelete = #{isdelete,jdbcType=BIT},
 			</if>
 		</set>
 		where KeyId = #{keyid,jdbcType=CHAR}
@@ -269,7 +269,7 @@
 		UpdateTime =
 		#{updatetime,jdbcType=TIMESTAMP},
 		IsDelete =
-		#{isdelete,jdbcType=TIMESTAMP}
+		#{isdelete,jdbcType=BIT}
 		where KeyId = #{keyid,jdbcType=CHAR}
 	</update>
 </mapper>

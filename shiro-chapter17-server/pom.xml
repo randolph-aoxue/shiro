@@ -17,7 +17,6 @@
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
         </dependency>
 
         <dependency>
@@ -121,16 +120,16 @@
     <build>
         <finalName>chapter17-server</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>8.1.8.v20121106</version>
-                <configuration>
-                    <webAppConfig>
-                        <contextPath>/${project.build.finalName}</contextPath>
-                    </webAppConfig>
-                </configuration>
-            </plugin>
+<!--             <plugin> -->
+<!--                 <groupId>org.mortbay.jetty</groupId> -->
+<!--                 <artifactId>jetty-maven-plugin</artifactId> -->
+<!--                 <version>8.1.8.v20121106</version> -->
+<!--                 <configuration> -->
+<!--                     <webAppConfig> -->
+<!--                         <contextPath>/${project.build.finalName}</contextPath> -->
+<!--                     </webAppConfig> -->
+<!--                 </configuration> -->
+<!--             </plugin> -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>

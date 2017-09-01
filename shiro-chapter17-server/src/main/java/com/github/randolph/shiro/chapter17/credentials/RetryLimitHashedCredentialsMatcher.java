@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 
  * @author randolph 
- * @date 2017年8月31日 下午4:55:53 
+ * @date 2017年8月31日
  *
  */
 public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher {

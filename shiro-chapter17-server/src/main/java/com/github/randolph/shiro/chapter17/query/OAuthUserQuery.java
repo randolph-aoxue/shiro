@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OAuthClientDOQuery {
+public class OAuthUserQuery {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public OAuthClientDOQuery() {
+    public OAuthUserQuery() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -175,213 +175,213 @@ public class OAuthClientDOQuery {
             return (Criteria) this;
         }
 
-        public Criteria andClientnameIsNull() {
-            addCriterion("ClientName is null");
+        public Criteria andUsernameIsNull() {
+            addCriterion("Username is null");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameIsNotNull() {
-            addCriterion("ClientName is not null");
+        public Criteria andUsernameIsNotNull() {
+            addCriterion("Username is not null");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameEqualTo(String value) {
-            addCriterion("ClientName =", value, "clientname");
+        public Criteria andUsernameEqualTo(String value) {
+            addCriterion("Username =", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameNotEqualTo(String value) {
-            addCriterion("ClientName <>", value, "clientname");
+        public Criteria andUsernameNotEqualTo(String value) {
+            addCriterion("Username <>", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameGreaterThan(String value) {
-            addCriterion("ClientName >", value, "clientname");
+        public Criteria andUsernameGreaterThan(String value) {
+            addCriterion("Username >", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameGreaterThanOrEqualTo(String value) {
-            addCriterion("ClientName >=", value, "clientname");
+        public Criteria andUsernameGreaterThanOrEqualTo(String value) {
+            addCriterion("Username >=", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameLessThan(String value) {
-            addCriterion("ClientName <", value, "clientname");
+        public Criteria andUsernameLessThan(String value) {
+            addCriterion("Username <", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameLessThanOrEqualTo(String value) {
-            addCriterion("ClientName <=", value, "clientname");
+        public Criteria andUsernameLessThanOrEqualTo(String value) {
+            addCriterion("Username <=", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameLike(String value) {
-            addCriterion("ClientName like", value, "clientname");
+        public Criteria andUsernameLike(String value) {
+            addCriterion("Username like", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameNotLike(String value) {
-            addCriterion("ClientName not like", value, "clientname");
+        public Criteria andUsernameNotLike(String value) {
+            addCriterion("Username not like", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameIn(List<String> values) {
-            addCriterion("ClientName in", values, "clientname");
+        public Criteria andUsernameIn(List<String> values) {
+            addCriterion("Username in", values, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameNotIn(List<String> values) {
-            addCriterion("ClientName not in", values, "clientname");
+        public Criteria andUsernameNotIn(List<String> values) {
+            addCriterion("Username not in", values, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameBetween(String value1, String value2) {
-            addCriterion("ClientName between", value1, value2, "clientname");
+        public Criteria andUsernameBetween(String value1, String value2) {
+            addCriterion("Username between", value1, value2, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientnameNotBetween(String value1, String value2) {
-            addCriterion("ClientName not between", value1, value2, "clientname");
+        public Criteria andUsernameNotBetween(String value1, String value2) {
+            addCriterion("Username not between", value1, value2, "username");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidIsNull() {
-            addCriterion("ClientKeyId is null");
+        public Criteria andPasswordIsNull() {
+            addCriterion("Password is null");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidIsNotNull() {
-            addCriterion("ClientKeyId is not null");
+        public Criteria andPasswordIsNotNull() {
+            addCriterion("Password is not null");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidEqualTo(String value) {
-            addCriterion("ClientKeyId =", value, "clientkeyid");
+        public Criteria andPasswordEqualTo(String value) {
+            addCriterion("Password =", value, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidNotEqualTo(String value) {
-            addCriterion("ClientKeyId <>", value, "clientkeyid");
+        public Criteria andPasswordNotEqualTo(String value) {
+            addCriterion("Password <>", value, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidGreaterThan(String value) {
-            addCriterion("ClientKeyId >", value, "clientkeyid");
+        public Criteria andPasswordGreaterThan(String value) {
+            addCriterion("Password >", value, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidGreaterThanOrEqualTo(String value) {
-            addCriterion("ClientKeyId >=", value, "clientkeyid");
+        public Criteria andPasswordGreaterThanOrEqualTo(String value) {
+            addCriterion("Password >=", value, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidLessThan(String value) {
-            addCriterion("ClientKeyId <", value, "clientkeyid");
+        public Criteria andPasswordLessThan(String value) {
+            addCriterion("Password <", value, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidLessThanOrEqualTo(String value) {
-            addCriterion("ClientKeyId <=", value, "clientkeyid");
+        public Criteria andPasswordLessThanOrEqualTo(String value) {
+            addCriterion("Password <=", value, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidLike(String value) {
-            addCriterion("ClientKeyId like", value, "clientkeyid");
+        public Criteria andPasswordLike(String value) {
+            addCriterion("Password like", value, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidNotLike(String value) {
-            addCriterion("ClientKeyId not like", value, "clientkeyid");
+        public Criteria andPasswordNotLike(String value) {
+            addCriterion("Password not like", value, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidIn(List<String> values) {
-            addCriterion("ClientKeyId in", values, "clientkeyid");
+        public Criteria andPasswordIn(List<String> values) {
+            addCriterion("Password in", values, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidNotIn(List<String> values) {
-            addCriterion("ClientKeyId not in", values, "clientkeyid");
+        public Criteria andPasswordNotIn(List<String> values) {
+            addCriterion("Password not in", values, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidBetween(String value1, String value2) {
-            addCriterion("ClientKeyId between", value1, value2, "clientkeyid");
+        public Criteria andPasswordBetween(String value1, String value2) {
+            addCriterion("Password between", value1, value2, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientkeyidNotBetween(String value1, String value2) {
-            addCriterion("ClientKeyId not between", value1, value2, "clientkeyid");
+        public Criteria andPasswordNotBetween(String value1, String value2) {
+            addCriterion("Password not between", value1, value2, "password");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretIsNull() {
-            addCriterion("ClientSecret is null");
+        public Criteria andSaltIsNull() {
+            addCriterion("Salt is null");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretIsNotNull() {
-            addCriterion("ClientSecret is not null");
+        public Criteria andSaltIsNotNull() {
+            addCriterion("Salt is not null");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretEqualTo(String value) {
-            addCriterion("ClientSecret =", value, "clientsecret");
+        public Criteria andSaltEqualTo(String value) {
+            addCriterion("Salt =", value, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretNotEqualTo(String value) {
-            addCriterion("ClientSecret <>", value, "clientsecret");
+        public Criteria andSaltNotEqualTo(String value) {
+            addCriterion("Salt <>", value, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretGreaterThan(String value) {
-            addCriterion("ClientSecret >", value, "clientsecret");
+        public Criteria andSaltGreaterThan(String value) {
+            addCriterion("Salt >", value, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretGreaterThanOrEqualTo(String value) {
-            addCriterion("ClientSecret >=", value, "clientsecret");
+        public Criteria andSaltGreaterThanOrEqualTo(String value) {
+            addCriterion("Salt >=", value, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretLessThan(String value) {
-            addCriterion("ClientSecret <", value, "clientsecret");
+        public Criteria andSaltLessThan(String value) {
+            addCriterion("Salt <", value, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretLessThanOrEqualTo(String value) {
-            addCriterion("ClientSecret <=", value, "clientsecret");
+        public Criteria andSaltLessThanOrEqualTo(String value) {
+            addCriterion("Salt <=", value, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretLike(String value) {
-            addCriterion("ClientSecret like", value, "clientsecret");
+        public Criteria andSaltLike(String value) {
+            addCriterion("Salt like", value, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretNotLike(String value) {
-            addCriterion("ClientSecret not like", value, "clientsecret");
+        public Criteria andSaltNotLike(String value) {
+            addCriterion("Salt not like", value, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretIn(List<String> values) {
-            addCriterion("ClientSecret in", values, "clientsecret");
+        public Criteria andSaltIn(List<String> values) {
+            addCriterion("Salt in", values, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretNotIn(List<String> values) {
-            addCriterion("ClientSecret not in", values, "clientsecret");
+        public Criteria andSaltNotIn(List<String> values) {
+            addCriterion("Salt not in", values, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretBetween(String value1, String value2) {
-            addCriterion("ClientSecret between", value1, value2, "clientsecret");
+        public Criteria andSaltBetween(String value1, String value2) {
+            addCriterion("Salt between", value1, value2, "salt");
             return (Criteria) this;
         }
 
-        public Criteria andClientsecretNotBetween(String value1, String value2) {
-            addCriterion("ClientSecret not between", value1, value2, "clientsecret");
+        public Criteria andSaltNotBetween(String value1, String value2) {
+            addCriterion("Salt not between", value1, value2, "salt");
             return (Criteria) this;
         }
 

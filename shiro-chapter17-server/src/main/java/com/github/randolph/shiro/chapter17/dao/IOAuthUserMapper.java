@@ -5,12 +5,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.github.randolph.shiro.chapter17.entity.OAuthUserDO;
-import com.github.randolph.shiro.chapter17.query.OAuthUserDOQuery;
+import com.github.randolph.shiro.chapter17.query.OAuthUserQuery;
 
 public interface IOAuthUserMapper {
-    long countByExample(OAuthUserDOQuery example);
+    long countByExample(OAuthUserQuery example);
 
-    int deleteByExample(OAuthUserDOQuery example);
+    int deleteByExample(OAuthUserQuery example);
 
     int deleteByPrimaryKey(String keyid);
 
@@ -18,13 +18,13 @@ public interface IOAuthUserMapper {
 
     int insertSelective(OAuthUserDO record);
 
-    List<OAuthUserDO> selectByExample(OAuthUserDOQuery example);
+    List<OAuthUserDO> selectByExample(OAuthUserQuery example);
 
     OAuthUserDO selectByPrimaryKey(String keyid);
 
-    int updateByExampleSelective(@Param("record") OAuthUserDO record, @Param("example") OAuthUserDOQuery example);
+    int updateByExampleSelective(@Param("record") OAuthUserDO record, @Param("example") OAuthUserQuery example);
 
-    int updateByExample(@Param("record") OAuthUserDO record, @Param("example") OAuthUserDOQuery example);
+    int updateByExample(@Param("record") OAuthUserDO record, @Param("example") OAuthUserQuery example);
 
     int updateByPrimaryKeySelective(OAuthUserDO record);
 

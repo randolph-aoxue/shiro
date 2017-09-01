@@ -14,7 +14,7 @@ public interface IOAuthUserService {
 
     OAuthUserDO updateUser(OAuthUserDO user);
 
-    void deleteUser(Long userId);
+    void deleteUser(String userId);
 
     /**
      * 修改密码
@@ -22,9 +22,9 @@ public interface IOAuthUserService {
      * @param userId
      * @param newPassword
      */
-    void changePassword(Long userId, String newPassword);
+    void changePassword(String userId, String newPassword);
 
-    OAuthUserDO findOne(Long userId);
+    OAuthUserDO findOne(String userId);
 
     List<OAuthUserDO> findAll();
 

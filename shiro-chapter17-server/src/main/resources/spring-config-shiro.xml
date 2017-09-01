@@ -9,9 +9,10 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 缓存管理器 -->
-    <bean id="cacheManager" class="com.github.randolph.shiro.spring.SpringCacheManagerWrapper">
-        <property name="cacheManager" ref="springCacheManager"/>
-    </bean>
+<!--     <bean id="cacheManager" class="com.github.randolph.shiro.spring.SpringCacheManagerWrapper"> -->
+<!--         <property name="cacheManager" ref="springCacheManager"/> -->
+<!--     </bean> -->
+    
 
     <!-- 凭证匹配器 -->
     <bean id="credentialsMatcher" class="com.github.randolph.shiro.chapter17.credentials.RetryLimitHashedCredentialsMatcher">

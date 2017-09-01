@@ -16,7 +16,7 @@ public interface IOAuthClientService {
 
     List<OAuthClientDO> findAll();
 
-    OAuthClientDO findByClientId(String clientId);
+    OAuthClientDO findByClientId(String clientKeyId);
 
     OAuthClientDO findByClientSecret(String clientSecret);
 
