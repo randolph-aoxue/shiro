@@ -112,8 +112,8 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
 					<path>/${project.build.finalName}</path>
-					<httpPort>8090</httpPort>
-					<httpsPort>8090</httpsPort>
+					<port>8090</port>
+<!-- 					<httpsPort>8090</httpsPort> -->
 				</configuration>
 			</plugin>
 		</plugins>

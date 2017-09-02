@@ -88,7 +88,7 @@
 			distinct
 		</if>
 		<include refid="Base_Column_List" />
-		from T_OAuth2_Client
+		from T_OAuth2_User
 		<if test="_parameter != null">
 			<include refid="Example_Where_Clause" />
 		</if>
@@ -100,24 +100,24 @@
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from T_OAuth2_Client
+		from T_OAuth2_User
 		where KeyId = #{keyid,jdbcType=CHAR}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 		delete from
-		T_OAuth2_Client
+		T_OAuth2_User
 		where KeyId = #{keyid,jdbcType=CHAR}
 	</delete>
 	<delete id="deleteByExample"
-		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthClientDOExamplee">
-		delete from T_OAuth2_Client
+		parameterType="com.github.randolph.shiro.chapter17.query.OAuthClientQuery">
+		delete from T_OAuth2_User
 		<if test="_parameter != null">
 			<include refid="Example_Where_Clause" />
 		</if>
 	</delete>
 	<insert id="insert"
 		parameterType="com.github.randolph.shiro.chapter17.query.OAuthUserQuery">
-		insert into T_OAuth2_Client (KeyId, Username, Password,
+		insert into T_OAuth2_User (KeyId, Username, Password,
 		Salt, CreateTime, UpdateTime,
 		IsDelete)
 		values (#{keyid,jdbcType=CHAR},
@@ -129,7 +129,7 @@
 	</insert>
 	<insert id="insertSelective"
 		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthUserDO">
-		insert into T_OAuth2_Client
+		insert into T_OAuth2_User
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="keyid != null">
 				KeyId,
@@ -180,13 +180,13 @@
 	<select id="countByExample"
 		parameterType="com.github.randolph.shiro.chapter17.query.OAuthUserQuery"
 		resultType="java.lang.Long">
-		select count(*) from T_OAuth2_Client
+		select count(*) from T_OAuth2_User
 		<if test="_parameter != null">
 			<include refid="Example_Where_Clause" />
 		</if>
 	</select>
 	<update id="updateByExampleSelective" parameterType="map">
-		update T_OAuth2_Client
+		update T_OAuth2_User
 		<set>
 			<if test="record.keyid != null">
 				KeyId = #{record.keyid,jdbcType=CHAR},
@@ -215,7 +215,7 @@
 		</if>
 	</update>
 	<update id="updateByExample" parameterType="map">
-		update T_OAuth2_Client
+		update T_OAuth2_User
 		set KeyId = #{record.keyid,jdbcType=CHAR},
 		Username = #{record.username,jdbcType=VARCHAR},
 		Password =
@@ -234,7 +234,7 @@
 	</update>
 	<update id="updateByPrimaryKeySelective"
 		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthUserDO">
-		update T_OAuth2_Client
+		update T_OAuth2_User
 		<set>
 			<if test="username != null">
 				Username = #{username,jdbcType=VARCHAR},
@@ -259,7 +259,7 @@
 	</update>
 	<update id="updateByPrimaryKey"
 		parameterType="com.github.randolph.shiro.chapter17.entity.OAuthUserDO">
-		update T_OAuth2_Client
+		update T_OAuth2_User
 		set Username =
 		#{username,jdbcType=VARCHAR},
 		Password = #{password,jdbcType=VARCHAR},

@@ -3,10 +3,12 @@ package com.github.randolph.shiro.chapter17.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
+import org.springframework.stereotype.Service;
 
 import com.github.randolph.shiro.chapter17.service.IOAuthClientService;
 import com.github.randolph.shiro.chapter17.service.IOAuthService;
 
+@Service("oAuthServiceImpl")
 public class OAuthServiceImpl implements IOAuthService {
 
     private Cache cache;
