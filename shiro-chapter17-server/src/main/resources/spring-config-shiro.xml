@@ -119,7 +119,7 @@
                 /accessToken=anon
                 /userInfo=anon
 
-                /** = user
+                /** = anon
             </value>
         </property>
     </bean>

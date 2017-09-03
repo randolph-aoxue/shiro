@@ -29,12 +29,12 @@
     <tbody>
         <c:forEach items="${clientList}" var="client">
             <tr>
-                <td>${client.clientName}</td>
-                <td>${client.clientId}</td>
-                <td>${client.clientSecret}</td>
+                <td>${client.clientname}</td>
+                <td>${client.clientid}</td>
+                <td>${client.clientsecret}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/client/${client.id}/update">修改</a>
-                    <a href="${pageContext.request.contextPath}/client/${client.id}/delete">删除</a>
+                    <a href="${pageContext.request.contextPath}/client/${client.kyeid}/update">修改</a>
+                    <a href="${pageContext.request.contextPath}/client/${client.keyid}/delete">删除</a>
                 </td>
             </tr>
         </c:forEach>

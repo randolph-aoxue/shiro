@@ -25,9 +25,9 @@
             <tr>
                 <td>${user.username}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/user/${user.id}/update">修改</a>
-                    <a href="${pageContext.request.contextPath}/user/${user.id}/delete">删除</a>
-                    <a href="${pageContext.request.contextPath}/user/${user.id}/changePassword">改密</a>
+                    <a href="${pageContext.request.contextPath}/user/${user.keyid}/update">修改</a>
+                    <a href="${pageContext.request.contextPath}/user/${user.keyid}/delete">删除</a>
+                    <a href="${pageContext.request.contextPath}/user/${user.keyid}/changePassword">改密</a>
                 </td>
             </tr>
         </c:forEach>

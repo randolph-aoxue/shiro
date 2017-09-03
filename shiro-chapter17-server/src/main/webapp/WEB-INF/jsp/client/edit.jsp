@@ -14,13 +14,13 @@
 <body>
 
     <form:form method="post" commandName="client">
-        <form:hidden path="id"/>
-        <form:hidden path="clientId"/>
-        <form:hidden path="clientSecret"/>
+        <form:hidden path="keyid"/>
+        <form:hidden path="clientid"/>
+        <form:hidden path="clientsecret"/>
 
         <div class="form-group">
-            <form:label path="clientName">客户端名：</form:label>
-            <form:input path="clientName"/>
+            <form:label path="clientname">客户端名：</form:label>
+            <form:input path="clientname"/>
         </div>
 
         <form:button>${op}</form:button>

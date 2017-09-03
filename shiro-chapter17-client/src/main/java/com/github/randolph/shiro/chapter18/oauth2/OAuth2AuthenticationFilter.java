@@ -82,10 +82,12 @@ public class OAuth2AuthenticationFilter extends AuthenticatingFilter {
                 saveRequestAndRedirectToLogin(request, response);
                 return false;
             }
+            // 执行父类里的登录逻辑，调用Subject.login登录
+            return executeLogin(request, response);
         }
-
-        // 执行父类里的登录逻辑，调用Subject.login登录
-        return executeLogin(request, response);
+        // 已登录，重定向到成功页面
+        issueSuccessRedirect(request, response);
+        return false;
     }
 
     // 登录成功后的回调方法 重定向到成功页面

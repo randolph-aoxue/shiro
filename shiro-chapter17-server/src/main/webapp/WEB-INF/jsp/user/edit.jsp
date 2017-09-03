@@ -14,7 +14,7 @@
 <body>
 
     <form:form method="post" commandName="user">
-        <form:hidden path="id"/>
+        <form:hidden path="keyid"/>
         <form:hidden path="salt"/>
         <c:if test="${op ne '新增'}">
             <form:hidden path="password"/>
